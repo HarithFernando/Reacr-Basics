@@ -1,34 +1,36 @@
-import React from 'react';
+import React , {Component} from 'react';
 import './App.css';
 import ToDo from './components/ToDo';
 import Hello from './components/FunctionComponent';
 
-function App() {
-//   state = {
-//     todos : [
-//         {
-//             di :1,
-//             title : 'wake up',
-//             completed : false 
-//         },
-//         {
-//             di :2,
-//             title : 'wash',
-//             completed : false 
-//         },
-//         {
-//             di :3,
-//             title : 'sleep',
-//             completed : false 
-//         }
-//     ]
-// }
+class App extends Component  {
+  state = {
+    todos : [
+        {
+            di :1,
+            title : 'wake up',
+            completed : false 
+        },
+        {
+            di :2,
+            title : 'wash',
+            completed : false 
+        },
+        {
+            di :3,
+            title : 'sleep',
+            completed : false 
+        }
+    ]
+}
+render(){
   return (
     <div>
-    <Hello name="harith"/>
-    <ToDo/>
+   <ToDo todos={this.state.todos}/>
     </div>
-  );
+  ); 
+}
+ 
 }
 
 export default App;
