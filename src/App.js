@@ -1,32 +1,48 @@
 import React , {Component} from 'react';
 import './App.css';
 import ToDo from './components/ToDo';
-import Hello from './components/FunctionComponent';
+//import Hello from './components/FunctionComponent';
 
 class App extends Component  {
   state = {
     todos : [
         {
-            di :1,
+            id :1,
             title : 'wake up',
             completed : true 
         },
         {
-            di :2,
+            id :2,
             title : 'wash',
             completed : false 
         },
         {
-            di :3,
+            id :3,
             title : 'sleep',
             completed : false 
-        }
+        },
+        {
+          id :4,
+          title : 'drink',
+          completed : false 
+      }
     ]
 }
+
+markComplete=(id) => {
+  this.setState({todos : this.state.todos.map(todo =>{
+
+    if(todo.id === id){
+    todo.completed = !todo.completed
+  }
+  return todo;
+})});
+}
+
 render(){
   return (
     <div>
-   <ToDo todos={this.state.todos}/>
+   <ToDo todos={this.state.todos} markComplete={this.markComplete} />
     </div>
   ); 
 }

@@ -18,16 +18,26 @@
                 backgroundColor:'#ff0454',
                 padding:'20px',
                 borderBottom:'1px #ccc dotted',
-                textDecoration: this.props.x.completed? 'line-through' : 'none'
+                textDecoration: this.props.todo.completed? 'line-through' : 'none'
             }
         }
 
+        // markComplete=(e) => {
+        //     console.log(this.props)
+        // }
+
+
         render(){
+            const { id , title} = this.props.todo
             
 
             return(
             <div /*style={{ backgroundColor: '#f24f5432'}}*/ style={this.getStyle()} >
-                <h1>{this.props.x.title}</h1>
+                <p>
+                <input type="checkbox" onChange={this.props.markComplete.bind(this , id)} />
+                {'  '}
+                {title}
+                </p>
             </div>
             );
             }
@@ -35,7 +45,7 @@
 
     //PropTypes
     TodoItem.propTypes ={
-        x: PropTypes.object.isRequired
+        todo: PropTypes.object.isRequired
     }
 
     export default TodoItem;
