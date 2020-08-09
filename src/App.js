@@ -9,7 +9,7 @@ class App extends Component  {
         {
             di :1,
             title : 'wake up',
-            completed : false 
+            completed : true 
         },
         {
             di :2,
